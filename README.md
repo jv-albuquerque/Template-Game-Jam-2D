@@ -5,10 +5,10 @@ A Simple Template to start build a game in a Game Jam for Unity 2019.2
 
 These project can be simply copy and opened in the unity to start a project. This is made to don't lose time with things that isn't the game, like menu, pause, save highscore and things like that.
 
-##DONE
+## DONE
 * Main Menu
 
-##TODO
+## TODO
 * Music set code
 * Save highscore
 * Pause
