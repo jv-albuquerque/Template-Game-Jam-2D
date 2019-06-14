@@ -9,6 +9,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] private GameObject canvasPause = null;
     [SerializeField] private GameObject canvasSettings = null;
     [SerializeField] private GameObject canvasGameOver = null;
+    [SerializeField] private GameObject canvasGameUI = null;
 
     //Checkers
     private bool pause;
@@ -26,6 +27,7 @@ public class PauseController : MonoBehaviour
         canvasPause.SetActive(false);
         canvasSettings.SetActive(false);
         canvasGameOver.SetActive(false);
+        canvasGameUI.SetActive(true);
     }
 
     public void Pause()
@@ -43,6 +45,7 @@ public class PauseController : MonoBehaviour
                 Time.timeScale = timeScale;
                 canvasPause.SetActive(false);
                 canvasSettings.SetActive(false);
+                canvasGameUI.SetActive(true);
             }
             // if it is in the settings menu
             else
@@ -57,6 +60,7 @@ public class PauseController : MonoBehaviour
             isPause = true;
             Time.timeScale = 0;
             canvasPause.SetActive(true);
+            canvasGameUI.SetActive(false);
         }
     }
 
@@ -64,6 +68,7 @@ public class PauseController : MonoBehaviour
     {
         gameOver = true;
         canvasGameOver.SetActive(true);
+        canvasGameUI.SetActive(false);
     }
 
     public void Settings()

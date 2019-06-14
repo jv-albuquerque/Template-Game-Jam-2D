@@ -3,13 +3,17 @@
 public class GameController : MonoBehaviour
 {
     private PauseController pause;
+    private Score score;
 
     private bool paused = false;
     private bool gameOver = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
         pause = GetComponent<PauseController>();
+        score = GetComponent<Score>();        
     }
 
     // Update is called once per frame
@@ -21,15 +25,25 @@ public class GameController : MonoBehaviour
             pause.Pause();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q) && !gameOver)
         {
-            gameOver = true;
-            pause.GameOver();
+            GameOver();
         }
 
-        if(!pause && !gameOver)
+        if (!paused && !gameOver)
         {
             // do everythings here
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                score.AddScore(0);
+            }
         }
+    }
+
+    private void GameOver()
+    {
+        gameOver = true;
+        score.SaveHighScore();
+        pause.GameOver();
     }
 }

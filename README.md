@@ -10,10 +10,10 @@ These project can be simply copy and opened in the unity to start a project. Thi
 * Pause
 * Game Controller
 * Game Over
+* Save highscore
 
 ## TODO
 * Music set code
-* Save highscore
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
