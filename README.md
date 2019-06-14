@@ -7,12 +7,13 @@ These project can be simply copy and opened in the unity to start a project. Thi
 
 ## DONE
 * Main Menu
+* Pause
+* Game Controller
+* Game Over
 
 ## TODO
 * Music set code
 * Save highscore
-* Pause
-* Game Controller
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
