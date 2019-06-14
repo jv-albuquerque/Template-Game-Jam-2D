@@ -11,9 +11,9 @@ These project can be simply copy and opened in the unity to start a project. Thi
 * Game Controller
 * Game Over
 * Save highscore
+* Music set code
 
 ## TODO
-* Music set code
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
