@@ -13,7 +13,6 @@ public class PauseController : MonoBehaviour
 
     //Checkers
     private bool pause;
-    private bool settings;
     private bool gameOver;
 
     //past settings variables
@@ -30,6 +29,9 @@ public class PauseController : MonoBehaviour
         canvasGameUI.SetActive(true);
     }
 
+    /// <summary>
+    /// Pause or unpause the game
+    /// </summary>
     public void Pause()
     {
         if (gameOver)
@@ -64,6 +66,9 @@ public class PauseController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Go to GameOver Screen
+    /// </summary>
     public void GameOver()
     {
         gameOver = true;
@@ -71,27 +76,37 @@ public class PauseController : MonoBehaviour
         canvasGameUI.SetActive(false);
     }
 
+    /// <summary>
+    /// Go to settings menu
+    /// </summary>
     public void Settings()
     {
         pause = false;
-        settings = true;
         canvasPause.SetActive(false);
         canvasSettings.SetActive(true);
     }
 
+    /// <summary>
+    /// Go back to pause main menu
+    /// </summary>
     public void MainPause()
     {
         pause = true;
-        settings = false;
         canvasPause.SetActive(true);
         canvasSettings.SetActive(false);
     }
 
+    /// <summary>
+    /// Go back to main menu
+    /// </summary>
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Reset the game
+    /// </summary>
     public void Restart()
     {
         SceneManager.LoadScene(1);

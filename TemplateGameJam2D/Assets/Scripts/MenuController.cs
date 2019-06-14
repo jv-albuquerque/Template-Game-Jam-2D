@@ -10,8 +10,6 @@ public class MenuController : MonoBehaviour
 
     //Checkers
     private bool mainMenu;
-    private bool settings;
-    private bool credits;
 
     void Start()
     {
@@ -54,8 +52,6 @@ public class MenuController : MonoBehaviour
     public void Settings()
     {
         mainMenu = false;
-        credits = false;
-        settings = true;
 
         canvasMainMenu.SetActive(false);
         canvasCredits.SetActive(false);
@@ -68,8 +64,6 @@ public class MenuController : MonoBehaviour
     public void Credits()
     {
         mainMenu = false;
-        credits = true;
-        settings = false;
 
         canvasMainMenu.SetActive(false);
         canvasCredits.SetActive(true);
@@ -82,8 +76,6 @@ public class MenuController : MonoBehaviour
     public void MainMenu()
     {
         mainMenu = true;
-        credits = false;
-        settings = false;
 
         canvasMainMenu.SetActive(true);
         canvasCredits.SetActive(false);

@@ -19,17 +19,20 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Pause when the player click "Cancel" (by default, Esc)
         if (Input.GetButtonDown("Cancel") && !gameOver)
         {
             paused = !paused;
             pause.Pause();
         }
 
+        //made only to call the gameover
         if(Input.GetKeyDown(KeyCode.Q) && !gameOver)
         {
             GameOver();
         }
 
+        // Where the games go, only can call if isn't paused and isn't gameover
         if (!paused && !gameOver)
         {
             // do everythings here
@@ -40,6 +43,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fuction made to update all the things when the game is over
+    /// </summary>
     private void GameOver()
     {
         gameOver = true;
