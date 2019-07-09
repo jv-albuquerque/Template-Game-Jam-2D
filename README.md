@@ -7,6 +7,10 @@ These project can be simply copy and opened in the unity to start a project. Thi
 
 ## DONE
 * Main Menu
+  * Start button
+  * Settings
+  * Credit screen
+  * Exit Button
 * Pause
 * Game Controller
 * Game Over
@@ -14,6 +18,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
 * Music set code
 
 ## TODO
+* System of diferent languages
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
