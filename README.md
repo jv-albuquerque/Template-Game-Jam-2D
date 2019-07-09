@@ -1,5 +1,5 @@
 # Template-Game-Jam-2D
-A Simple Template to start build a game in a Game Jam for Unity 2019.2
+A Simple Template to start build a game in a Game Jam for **Unity 2019.2**
 
 ## Overview
 
@@ -10,7 +10,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
   * Start button
   * Settings
   * Credit screen
-  * Exit Button
+  * Exit button
 * Pause
 * Game Controller
 * Game Over
