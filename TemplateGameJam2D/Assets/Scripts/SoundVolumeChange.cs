@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SoundVolumeChange : MonoBehaviour
 {
-    [SerializeField] AudioSource[] MusicAudioSrcs;
-    [SerializeField] Slider slider;
+    [SerializeField] AudioSource[] MusicAudioSrcs = null;
+    [SerializeField] Slider slider = null;
 
     // Start is called before the first frame update
     void Start()
