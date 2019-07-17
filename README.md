@@ -19,6 +19,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
 
 ## TODO
 * System of diferent languages
+* Add cooldown code
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
