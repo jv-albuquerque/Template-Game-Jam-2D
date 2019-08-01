@@ -20,10 +20,10 @@ These project can be simply copy and opened in the unity to start a project. Thi
 	* Music audio volume
 	* Effects audio volume
 * Cooldown code
+* Loading Screen
 
 ## TODO
 * System of diferent languages
-* Loading Screen
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)

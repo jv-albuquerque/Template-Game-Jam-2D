@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreenController : MonoBehaviour
 {
+    // This is used to pass the feeling of a real game to the player
+    // It isn't required, If You dont whant to use, you must go to the Load scene and un mark the useDelay
     [Header("Player Experience")]
     [SerializeField] private bool useDelay = true;
     [SerializeField] private float delayToLoad = 2f;
 
+    // Slider used to see the progress of the loading
     [Header("Load Bar Properties")]
     [SerializeField] private GameObject sliderObj;
     [SerializeField] private Slider slider;
@@ -23,15 +26,18 @@ public class LoadingScreenController : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; //Need this if the scene comes from a pause
 
-        delayCD = new Cooldown(Random.Range(0.1f , delayToLoad));
-        delayCD.Start();
+        datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();      
 
-        datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();
-
-        if(!useDelay)
+        if(!useDelay) // if don't want to force a loading
             StartCoroutine(LoadingScreen());
+        else
+        {
+            //start the cooldown timer randomly, to pass the feel it is real
+            delayCD = new Cooldown(Random.Range(0.1f , delayToLoad)); 
+            delayCD.Start();
+        }
     }
 
     private void Update()
@@ -39,11 +45,11 @@ public class LoadingScreenController : MonoBehaviour
         if(useDelay)
             if(!delayCD.IsFinished)
             {
-                slider.value = delayCD.Percent/200;
+                slider.value = (delayCD.Percent/100)*(3f/4f); // it will fill three-quarter of the bar
             }
             else if(!alreadyCalledLoadingScreen)
             {
-                alreadyCalledLoadingScreen = true;
+                alreadyCalledLoadingScreen = true; //make this call singleton
                 StartCoroutine(LoadingScreen());
             }
     }
