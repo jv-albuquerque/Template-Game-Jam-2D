@@ -110,7 +110,7 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
-        StartCoroutine(Fading(0));
+        StartCoroutine(Fading(0)); //Start the fade out before change sceane
     }
 
     /// <summary>
@@ -118,9 +118,11 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void Restart()
     {
-        StartCoroutine(Fading(1));
+        StartCoroutine(Fading(1)); //Start the fade out before restart sceane
     }
 
+    //Function that plays the fade out in paralel
+    //The Animation needs to be in the update mode = Unscale time
     private IEnumerator Fading(int sceaneIndex)
     {
         fadeAnim.SetTrigger("FadeOut");

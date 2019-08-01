@@ -41,7 +41,7 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        StartCoroutine(Fading());
+        StartCoroutine(Fading()); //Start the fade out before change sceane
     }
 
     /// <summary>
@@ -90,6 +90,8 @@ public class MenuController : MonoBehaviour
         canvasSettings.SetActive(false);
     }
 
+    //Function that playes the fade out in paralel
+    //The Animation needs to be in the update mode = Unscale time
     private IEnumerator Fading()
     {
         fadeAnim.SetTrigger("FadeOut");
