@@ -13,13 +13,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject canvasMainMenu = null;
     [SerializeField] private GameObject canvasSettings = null;
     [SerializeField] private GameObject canvasCredits = null;
-
+    
+    private ImportantDatas datas = null;
 
     //Checkers
     private bool mainMenu;
 
     void Start()
     {
+        datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();
+
         fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
         fadeAnim.SetTrigger("FadeIn");
         MainMenu();
@@ -98,6 +101,7 @@ public class MenuController : MonoBehaviour
         fadeAnim.SetTrigger("FadeOut");
 
         yield return new WaitUntil(() => fadeInOut.color.a == 1);
-        SceneManager.LoadScene(1);
+        datas.NextScene = SceneManager.GetActiveScene().buildIndex + 1;  // set the scene that will be loaded
+        SceneManager.LoadScene(0);
     }
 }

@@ -18,6 +18,8 @@ public class PauseController : MonoBehaviour
     [SerializeField] private GameObject canvasGameOver = null;
     [SerializeField] private GameObject canvasGameUI = null;
 
+    private ImportantDatas datas = null;
+
     //Checkers
     private bool pause;
     private bool gameOver;
@@ -28,6 +30,8 @@ public class PauseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();
+
         fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
         fadeAnim.SetTrigger("FadeIn");
 
@@ -111,7 +115,8 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
-        StartCoroutine(Fading(0)); //Start the fade out before change sceane
+        datas.NextScene = 1; // set the scene that will be loaded
+        StartCoroutine(Fading()); //Start the fade out before change sceane
     }
 
     /// <summary>
@@ -119,16 +124,17 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void Restart()
     {
-        StartCoroutine(Fading(1)); //Start the fade out before restart sceane
+        datas.NextScene = SceneManager.GetActiveScene().buildIndex; // set the scene that will be loaded
+        StartCoroutine(Fading()); //Start the fade out before restart sceane
     }
 
     //Function that plays the fade out in paralel
     //The Animation needs to be in the update mode = Unscale time
-    private IEnumerator Fading(int sceaneIndex)
+    private IEnumerator Fading()
     {
         fadeAnim.SetTrigger("FadeOut");
 
         yield return new WaitUntil(() => fadeInOut.color.a == 1);
-        SceneManager.LoadScene(sceaneIndex);
+        SceneManager.LoadScene(0);
     }
 }
