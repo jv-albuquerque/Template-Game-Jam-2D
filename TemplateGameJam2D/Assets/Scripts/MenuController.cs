@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
         fadeAnim.SetTrigger("FadeIn");
         MainMenu();
     }

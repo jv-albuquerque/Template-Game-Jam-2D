@@ -28,6 +28,7 @@ public class PauseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
         fadeAnim.SetTrigger("FadeIn");
 
         timeScale = Time.timeScale;

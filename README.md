@@ -17,6 +17,8 @@ These project can be simply copy and opened in the unity to start a project. Thi
 * Game Over
 * Save highscore
 * Music set code
+	* Music audio volume
+	* Effects audio volume
 * Cooldown code
 
 ## TODO
