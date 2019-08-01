@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
     private bool isPause = false;
 
-    //Menus
+
+    [Header("Fade Properties")]
+    [SerializeField] private Image fadeInOut = null;
+    [SerializeField] private Animator fadeAnim = null;
+
+    [Header("Fade Menu")]
     [SerializeField] private GameObject canvasPause = null;
     [SerializeField] private GameObject canvasSettings = null;
     [SerializeField] private GameObject canvasGameOver = null;
@@ -21,6 +28,8 @@ public class PauseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fadeAnim.SetTrigger("FadeIn");
+
         timeScale = Time.timeScale;
 
         canvasPause.SetActive(false);
@@ -101,7 +110,7 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(Fading(0));
     }
 
     /// <summary>
@@ -109,6 +118,14 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(Fading(1));
+    }
+
+    private IEnumerator Fading(int sceaneIndex)
+    {
+        fadeAnim.SetTrigger("FadeOut");
+
+        yield return new WaitUntil(() => fadeInOut.color.a == 1);
+        SceneManager.LoadScene(sceaneIndex);
     }
 }

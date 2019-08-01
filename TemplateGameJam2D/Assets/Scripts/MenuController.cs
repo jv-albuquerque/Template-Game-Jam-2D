@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    //Menus
+    [Header("Fade Properties")]
+    [SerializeField] private Image fadeInOut = null;
+    [SerializeField] private Animator fadeAnim = null;
+
+    [Header("Menu Properties")]
     [SerializeField] private GameObject canvasMainMenu = null;
     [SerializeField] private GameObject canvasSettings = null;
     [SerializeField] private GameObject canvasCredits = null;
+
 
     //Checkers
     private bool mainMenu;
 
     void Start()
     {
+        fadeAnim.SetTrigger("FadeIn");
         MainMenu();
     }
 
@@ -33,7 +41,7 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(Fading());
     }
 
     /// <summary>
@@ -80,5 +88,13 @@ public class MenuController : MonoBehaviour
         canvasMainMenu.SetActive(true);
         canvasCredits.SetActive(false);
         canvasSettings.SetActive(false);
+    }
+
+    private IEnumerator Fading()
+    {
+        fadeAnim.SetTrigger("FadeOut");
+
+        yield return new WaitUntil(() => fadeInOut.color.a == 1);
+        SceneManager.LoadScene(1);
     }
 }

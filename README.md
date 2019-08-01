@@ -12,6 +12,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
   * Credit screen
   * Exit button
 * Pause
+* Fade in/out between sceanes
 * Game Controller
 * Game Over
 * Save highscore
@@ -20,6 +21,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
 
 ## TODO
 * System of diferent languages
+* Loading Screen
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
