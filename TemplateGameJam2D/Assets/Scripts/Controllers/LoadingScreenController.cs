@@ -13,8 +13,8 @@ public class LoadingScreenController : MonoBehaviour
 
     // Slider used to see the progress of the loading
     [Header("Load Bar Properties")]
-    [SerializeField] private GameObject sliderObj;
-    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject sliderObj = null;
+    [SerializeField] private Slider slider = null;
 
     private ImportantDatas datas = null;
 
@@ -65,7 +65,7 @@ public class LoadingScreenController : MonoBehaviour
             if (!useDelay)
                 slider.value = async.progress;
             else
-                slider.value = async.progress/2 + 0.5f;
+                slider.value = async.progress/2 + 0.75f;
 
             if (async.progress == 0.9f)
             {
