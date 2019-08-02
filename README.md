@@ -21,9 +21,9 @@ These project can be simply copy and opened in the unity to start a project. Thi
 	* Effects audio volume
 * Cooldown code
 * Loading Screen
+* System to support diferent languages
 
 ## TODO
-* System of diferent languages
 * Add connection with GameJolt database
 * Add "How to use" for all topics
 
