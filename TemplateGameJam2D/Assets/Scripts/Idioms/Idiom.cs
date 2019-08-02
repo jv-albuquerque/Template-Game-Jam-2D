@@ -1,14 +1,13 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 public abstract class Idiom
 {
+    protected Dictionary<string, string> map;
 
     public abstract string GetIdiomName();
 
-    public abstract string GetMainMenu(int index);
+    public abstract string GetText(string index);
 
-    public abstract string GetSettings(int index);
-
-    public abstract string GetCredits(int index);
+    protected abstract void AddTexts();
 
 }

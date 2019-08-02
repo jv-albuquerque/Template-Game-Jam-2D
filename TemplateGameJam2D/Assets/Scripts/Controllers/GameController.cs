@@ -5,9 +5,16 @@ public class GameController : MonoBehaviour
     private PauseController pause;
     private Score score;
 
+    [SerializeField] private GameObject importatDatas;
+
     private bool paused = false;
     private bool gameOver = false;
 
+    private void Awake()
+    {
+        if (GameObject.FindGameObjectWithTag("Datas") == null)
+            Instantiate(importatDatas);
+    }
 
     // Start is called before the first frame update
     void Start()

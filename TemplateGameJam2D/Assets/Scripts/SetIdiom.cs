@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SetIdiom : MonoBehaviour
 {
-    private Idiom idiom;
+    private ImportantDatas datas;
+
+    private void Awake()
+    {
+        datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();
+    }
 
     public void ChooseIdiom(string idiom)
     {
-        switch (idiom)
-        {
-            case "Portuguese":
-                break;
-            case "English":
-                break;
-            default:
-                break;
-        }
+        datas.SetIdiom = idiom;
     }
 }

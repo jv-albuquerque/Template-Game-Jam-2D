@@ -13,7 +13,12 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject canvasMainMenu = null;
     [SerializeField] private GameObject canvasSettings = null;
     [SerializeField] private GameObject canvasCredits = null;
-    
+
+    [Header("Settings Properties")]
+    [SerializeField] private GameObject selectEnglish = null;
+    [SerializeField] private GameObject selectPortuguese = null;
+
+
     private ImportantDatas datas = null;
 
     //Checkers
@@ -23,9 +28,29 @@ public class MenuController : MonoBehaviour
     {
         datas = GameObject.FindGameObjectWithTag("Datas").GetComponent<ImportantDatas>();
 
-        fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
-        fadeAnim.SetTrigger("FadeIn");
+        if (datas.NeedFadeIn)
+        {
+            fadeInOut.gameObject.SetActive(true); //used to clean the screen in the editor
+            fadeAnim.SetTrigger("FadeIn");
+        }
+        else
+            datas.NeedFadeIn = true;
+
         MainMenu();
+
+        switch (PlayerPrefs.GetString("Idiom", "English"))
+        {
+            case "Portuguese":
+                selectEnglish.SetActive(false);
+                selectPortuguese.SetActive(true);
+                break;
+            case "English":
+                selectEnglish.SetActive(true);
+                selectPortuguese.SetActive(false);
+                break;
+            default:
+                break;
+        }
     }
 
     private void Update()
@@ -103,5 +128,11 @@ public class MenuController : MonoBehaviour
         yield return new WaitUntil(() => fadeInOut.color.a == 1);
         datas.NextScene = SceneManager.GetActiveScene().buildIndex + 1;  // set the scene that will be loaded
         SceneManager.LoadScene(0);
+    }
+
+    public void RestartScene()
+    {
+        datas.NeedFadeIn = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
