@@ -28,4 +28,4 @@ These project can be simply copy and opened in the unity to start a project. Thi
 * Add "How to use" for all topics
 
 ## Authors
-* **João Vitor Filgueira Albuquerque** - [jv-albuquerque](https://github.com/jv-albuquerque)
+* **João Vitor Filgueira Albuquerque** - [Portfolio](https://jvalbuquerque.com.br)
