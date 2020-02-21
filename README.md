@@ -26,6 +26,7 @@ These project can be simply copy and opened in the unity to start a project. Thi
 ## TODO
 * Add connection with GameJolt database
 * Add "How to use" for all topics
+* Refactor some code to optimize the usability
 
 ## Authors
 * **João Vitor Filgueira Albuquerque** - [Portfolio](https://jvalbuquerque.com.br)
